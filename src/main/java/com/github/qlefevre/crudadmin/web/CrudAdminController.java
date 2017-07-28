@@ -78,13 +78,13 @@ public class CrudAdminController {
 	public void postConstruct() {
 
 		// Object Id Serializer
-		if (!StringUtils.isEmpty(crudAdminProperties.getObjectIdSerializer())) {
+		if (!StringUtils.isEmpty(crudAdminProperties.getObjectidserializer())) {
 			try {
 				idSerializer = ((CrudAdminDefaultObjectIdSerializer) Class
-						.forName(crudAdminProperties.getObjectIdSerializer()).newInstance());
+						.forName(crudAdminProperties.getObjectidserializer()).newInstance());
 			} catch (Exception ex) {
 				LOGGER.error("Unable to create Object Id Serializer for class  "
-						+ crudAdminProperties.getObjectIdSerializer());
+						+ crudAdminProperties.getObjectidserializer());
 			}
 		}
 		if (idSerializer == null) {
@@ -169,6 +169,7 @@ public class CrudAdminController {
 		CrudAdminRepository repoAdmin = repositoryMap.get(type);
 		addAttributes(model, repoAdmin, page, size);
 		model.addAttribute("fields", getFields(repoAdmin, id));
+		model.addAttribute("id",id);
 		return crudAdminProperties.getTemplateview();
 	}
 
@@ -334,7 +335,7 @@ public class CrudAdminController {
 				Object objectId = repoAdmin.getId().get(object);
 				String id = objectId == null ? "" : idSerializer.toString(objectId, repoAdmin.getIdType());
 				List<String> fields = new ArrayList<>();
-				fields.add(id);
+				fields.add(defaultString(objectId));
 				for (Field field : repoAdmin.getFields()) {
 					Object valObject = field.get(object);
 					String value = valObject instanceof Date ? CrudAdminUtils.SDF.format(valObject)
@@ -375,6 +376,7 @@ public class CrudAdminController {
 		model.addAttribute("message", message);
 		model.addAttribute("idreadonly", id != null || repoAdmin.isGeneratedId());
 		model.addAttribute("isnew", id == null);
+		model.addAttribute("id",id);
 		return crudAdminProperties.getTemplateedit();
 	}
 

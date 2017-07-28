@@ -21,8 +21,8 @@
                   </div>
                   <div class="col col-xs-6 text-right">
                    	<a th:href="${'/'+adminpath+'/list/' +domainnamelowercase+'/' +size+'/' +page}" class="btn btn-default"><span class="glyphicon glyphicon-list"></span> List</a>
-                    <a th:href="${'/'+adminpath+'/edit/' +domainnamelowercase+'/' +size+'/' +page+'/' +  fields[0].value}" class="btn btn-default"><span class="glyphicon glyphicon-pencil"></span> Edit</a>
-		    		<a th:href="${'/'+adminpath+'/delete/'+domainnamelowercase+'/' +size+'/' +page+'/' +  fields[0].value}" class="btn btn-warning"><span class="glyphicon glyphicon-trash"></span> Delete</a>
+                    <a th:href="${'/'+adminpath+'/edit/' +domainnamelowercase+'/' +size+'/' +page+'/' +  id}" class="btn btn-default"><span class="glyphicon glyphicon-pencil"></span> Edit</a>
+		    		<a th:href="${'/'+adminpath+'/delete/'+domainnamelowercase+'/' +size+'/' +page+'/' +  id}" class="btn btn-warning"><span class="glyphicon glyphicon-trash"></span> Delete</a>
                   </div>
                 </div>
               </div>

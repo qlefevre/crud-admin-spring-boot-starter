@@ -73,20 +73,6 @@ public class CrudAdminProperties {
 	}
 
 	/**
-	 * @return the objectIdSerializer
-	 */
-	public String getObjectIdSerializer() {
-		return objectidserializer;
-	}
-
-	/**
-	 * @param objectIdSerializer the objectIdSerializer to set
-	 */
-	public void setObjectIdSerializer(String objectIdSerializer) {
-		this.objectidserializer = objectIdSerializer;
-	}
-
-	/**
 	 * @return the defaultpagesize
 	 */
 	public int getDefaultpagesize() {
@@ -154,6 +140,20 @@ public class CrudAdminProperties {
 	 */
 	public void setTemplateview(String templateview) {
 		this.templateview = templateview;
+	}
+
+	/**
+	 * @return the objectidserializer
+	 */
+	public String getObjectidserializer() {
+		return objectidserializer;
+	}
+
+	/**
+	 * @param objectidserializer the objectidserializer to set
+	 */
+	public void setObjectidserializer(String objectidserializer) {
+		this.objectidserializer = objectidserializer;
 	}
  
     
