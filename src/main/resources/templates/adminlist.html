@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+
+    <title>Spring Boot Exemple</title>
+	<!--/*/ <th:block th:include="fragments/adminheaderinc :: head"></th:block> /*/-->
+</head>
+<body>
+	<div id="wrapper">
+	<!--/*/ <th:block th:include="fragments/adminheader :: header"></th:block> /*/-->
+	
+	<div id="page-wrapper">
+		<div class="container-fluid">
+		
+			<div class="panel panel-default panel-table">
+              <div class="panel-heading">
+                <div class="row">
+                  <div class="col col-xs-6">
+                    <h3 class="panel-title" th:text="${formatteddomainname+' list'}"></h3>
+                  </div>
+                  <div class="col col-xs-6 text-right">
+                  	<a th:href="${'/'+adminpath+'/new/' +domainnamelowercase+'/' +size+'/' +page}" class="btn btn-default btn-primary"><span class="glyphicon glyphicon-plus"></span> Create New</a>
+                  </div>
+                </div>
+              </div>
+              <div class="panel-body">
+              	<table class="table table-bordered table-hover table-striped table-list">
+              		<thead>
+			            <tr >
+			                <th th:each="tableheader : ${tableheaders}" th:class="${'th-'+tableheader}" th:text="${tableheader}"></th>
+			                <th class="th-action"><span class="glyphicon glyphicon-cog"></span></th>
+			            </tr>
+		            </thead>
+		            <tbody>
+			           	<tr th:each="object : ${objects}">
+			                <td th:each="field : ${object.fields}" th:text="${field}"></td>
+			                <td>
+				                <a th:href="${'/'+adminpath+'/view/' +domainnamelowercase+'/' +size+'/' +page+ '/' +object.urlEncodedId}" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-eye-open"></span></a>
+				                <a th:href="${'/'+adminpath+'/edit/'+domainnamelowercase+'/'  + size+'/' +page +'/' +object.urlEncodedId}" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-pencil"></span></a>
+				                <a th:href="${'/'+adminpath+'/delete/'+domainnamelowercase+'/' +size+'/' + page+'/' + object.urlEncodedId}" class="btn btn-warning btn-xs"><span class="glyphicon glyphicon-trash"></span></a>
+				            </td>
+			            </tr>
+		            </tbody>
+	        	</table>
+              
+              </div>
+              
+              <!-- https://bootsnipp.com/snippets/featured/table-panel-with-pagination  -->
+              
+              <div class="panel-footer">
+                <div class="row">
+                  <div class="col col-xs-4">
+					<ul class="pagination hidden-xs pull-right">
+						<li th:class="${size==10}?'active'" ><a th:href="${'/'+adminpath+'/list/' +domainnamelowercase+'/10/'+page}">10</a></li>
+						<li th:class="${size==25}?'active'" ><a th:href="${'/'+adminpath+'/list/' +domainnamelowercase+'/25/'+page}">25</a></li>
+						<li th:class="${size==50}?'active'"><a th:href="${'/'+adminpath+'/list/' +domainnamelowercase+'/50/'+page}">50</a></li>
+						<li th:class="${size==100}?'active'"><a th:href="${'/'+adminpath+'/list/' +domainnamelowercase+'/100/'+page}">100</a></li>
+					</ul>
+					<div th:text="${'Page '+(page+1)+' of '+(numberofpages+1)}"></div>
+				  </div>
+                  <div class="col col-xs-8">
+                    <ul class="pagination hidden-xs pull-right">
+                      <li><a th:href="${'/'+adminpath+'/list/' +domainnamelowercase+'/'+size+'/'+page}">«</a></li>
+                      <li  th:each="pageIndex:${#numbers.sequence(paginationstart,paginationend)}" th:class="${page.equals(pageIndex)}?'active':''">               
+                      	<a th:href="${'/'+adminpath+'/list/' +domainnamelowercase+'/'+size+'/'+pageIndex}" th:text="${pageIndex+1}"></a>	
+                      </li>
+                      <li><a th:href="${'/'+adminpath+'/list/' +domainnamelowercase+'/'+size+'/'+numberofpages}" >»</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+    	</div>
+    </div>
+</div>
+
+</body>
+</html>
