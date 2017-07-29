@@ -15,7 +15,10 @@
  */
 package com.github.qlefevre.crudadmin.util;
 
+import java.lang.reflect.Field;
 import java.text.SimpleDateFormat;
+
+import javax.persistence.Column;
 
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.repository.core.support.DefaultRepositoryMetadata;
@@ -59,5 +62,17 @@ public class CrudAdminUtils {
 
 	public static String defaultString(Object object) {
 		return object != null ? object.toString() : "";
+	}
+	
+	public static int getScale(Field field){
+		int scale=0;
+		Column column = field.getAnnotation(Column.class);
+		if(column != null){
+			scale = column.scale();
+		}
+		if(scale < 0){
+			scale = 0;
+		}
+		return scale;
 	}
 }

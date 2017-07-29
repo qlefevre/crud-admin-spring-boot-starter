@@ -315,12 +315,12 @@ public class CrudAdminController {
 						.findOne(getIdFromString(id, repoAdmin));
 				idValue = defaultString(repoAdmin.getId().get(dao));
 			}
-			fields.add(new CrudAdminObjectField("id", idValue));
+			fields.add(new CrudAdminObjectField("id", idValue,repoAdmin.getId()));
 			// Fields
 			for (Field field : repoAdmin.getFields()) {
 				Object valObject = field.get(dao);
 				String value = valObject instanceof Date ? SDF.format(valObject) : defaultString(valObject);
-				fields.add(new CrudAdminObjectField(field.getName(), value));
+				fields.add(new CrudAdminObjectField(field.getName(), value,field));
 			}
 		} catch (Exception ex) {
 			throw new RuntimeException(ex);
