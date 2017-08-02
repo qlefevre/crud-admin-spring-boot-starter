@@ -1,0 +1,9 @@
+language: java
+sudo: false
+script: mvn clean verify
+jdk:
+  - openjdk7
+  - openjdk8
+  - oraclejdk8
+env:
+  - MAVEN=3.5.0
