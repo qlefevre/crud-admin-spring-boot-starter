@@ -1,4 +1,4 @@
-# crud-admin-spring-boot-starter
+# crud-admin-spring-boot-starter [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.github.qlefevre/crud-admin-spring-boot-starter/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.github.qlefevrecrud-admin-spring-boot-starter) [![Build Status](https://travis-ci.org/qlefevre/crud-admin-spring-boot-starter.svg)](https://travis-ci.org/qlefevre/crud-admin-spring-boot-starter)
 CRUD Administration for Spring Boot
 
 # Installation
