@@ -49,15 +49,12 @@
         					</script>
 		                </div>
 		                <div class="col-sm-10" th:case="checkbox">
-		                	<input  type="checkbox" class="form-control" th:name="${field.name}" data-toggle="toggle" th:value="${field.value}" data-on="True" data-off="False"/>
+		                	<input  type="hidden" class="form-control" th:name="${field.name}" th:value="${field.value}"/>
+		                	<input  type="checkbox" class="form-control" th:name="${'checkbox_'+field.name}" data-toggle="toggle" th:checked="${field.value}" th:value="${field.value}" data-on="true" data-off="false"/>
 		                	<script th:inline="javascript">
-		                		if(/*[[${field.value}]]*/ === 'true'){
-		                			$( /*[[${'input[name='+field.name +']'}]]*/).attr('checked', 'checked');
-		                		}
-            					$( /*[[${'input[name='+field.name +']'}]]*/).click(function() {
-            						var element = $(/*[[${'input[name='+field.name +']'}]]*/);
-            						element.attr('value',element.attr("checked") ? 'true' : 'false');
-            					}
+		                		$( /*[[${'input[name=checkbox_'+field.name +']'}]]*/).change(function() {
+		                			$(/*[[${'input[name='+field.name +']'}]]*/).attr('value',$(this).prop('checked'));
+		                		});
             				</script>	
 		                </div>
 		                <div class="col-sm-10" th:case="text">
