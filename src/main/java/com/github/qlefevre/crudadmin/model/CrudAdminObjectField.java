@@ -17,6 +17,7 @@ package com.github.qlefevre.crudadmin.model;
 
 import java.lang.reflect.Field;
 
+import javax.persistence.Id;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 
@@ -53,29 +54,35 @@ public class CrudAdminObjectField {
 
 	private void checkInputType(Field field){
 		type = "text";
-		Class<?> typeField = field.getType();
-		if(int.class.equals(typeField)||Integer.class.equals(typeField)){
-			type="number";
-			min=Integer.MIN_VALUE;
-			max = Integer.MAX_VALUE;	
-		}else if(long.class.equals(typeField)||Long.class.equals(typeField)){
-			type="number";
-			min=Long.MIN_VALUE;
-			max = Long.MAX_VALUE;	
-		} else if(short.class.equals(typeField)||Short.class.equals(typeField)){
-			type="number";
-			min=Short.MIN_VALUE;
-			max = Short.MAX_VALUE;	
-		}else if(byte.class.equals(typeField)||Byte.class.equals(typeField)){
-			type="number";
-			min=Byte.MIN_VALUE;
-			max = Byte.MAX_VALUE;	
-		}else if(float.class.equals(typeField)||Float.class.equals(typeField)
-				|| double.class.equals(typeField)||Double.class.equals(typeField)){
-			int scaleValue = CrudAdminUtils.getScale(field);
-			if(scaleValue > 0){
-				scale = scaleValue;
+		if(field.getAnnotation(Id.class) != null){
+			type = "text";
+		}else{
+			Class<?> typeField = field.getType();
+			if (boolean.class.equals(typeField) || Boolean.class.equals(typeField)) {
+				type = "checkbox";
+			}else if (int.class.equals(typeField) || Integer.class.equals(typeField)) {
 				type = "number";
+				min = Integer.MIN_VALUE;
+				max = Integer.MAX_VALUE;
+			} else if (long.class.equals(typeField) || Long.class.equals(typeField)) {
+				type = "number";
+				min = Long.MIN_VALUE;
+				max = Long.MAX_VALUE;
+			} else if (short.class.equals(typeField) || Short.class.equals(typeField)) {
+				type = "number";
+				min = Short.MIN_VALUE;
+				max = Short.MAX_VALUE;
+			} else if (byte.class.equals(typeField) || Byte.class.equals(typeField)) {
+				type = "number";
+				min = Byte.MIN_VALUE;
+				max = Byte.MAX_VALUE;
+			} else if (float.class.equals(typeField) || Float.class.equals(typeField) || double.class.equals(typeField)
+					|| Double.class.equals(typeField)) {
+				int scaleValue = CrudAdminUtils.getScale(field);
+				if (scaleValue > 0) {
+					scale = scaleValue;
+					type = "number";
+				}
 			}
 		}
 	}
