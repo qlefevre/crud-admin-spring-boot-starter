@@ -48,7 +48,7 @@
             				            });
         					</script>
 		                </div>
-		                <div class="col-sm-10" th:case="checkbox">
+		                <div class="col-sm-10" th:case="boolean">
 		                	<input  type="hidden" class="form-control" th:name="${field.name}" th:value="${field.value}"/>
 		                	<input  type="checkbox" class="form-control" th:name="${'checkbox_'+field.name}" data-toggle="toggle" th:checked="${field.value}" th:value="${field.value}" data-on="true" data-off="false"/>
 		                	<script th:inline="javascript">
@@ -57,9 +57,28 @@
 		                		});
             				</script>	
 		                </div>
+		                <div class="col-sm-10" th:case="date">
+		               	<!--  <div class="form-group">-->
+                				<div class="input-group date" th:id="${'datetimepicker_'+field.name}">
+                    				<input  type="text" class="form-control" th:name="${field.name}" th:value="${field.value}"/>
+                    				<span class="input-group-addon">
+                        			<span class="glyphicon glyphicon-calendar"></span>
+                    				</span>
+                				</div>
+           					<!-- </div>-->
+		                	<script th:inline="javascript">
+		                		$(function () {
+		                        	$(/*[[${'#datetimepicker_'+field.name}]]*/).datetimepicker({
+		                        		format: 'YYYY-MM-DD HH:mm:ss'
+		                        	});
+		                    	});
+            				</script>	
+		                </div>
 		                <div class="col-sm-10" th:case="text">
 		                    <input type="text" class="form-control" th:name="${field.name}" th:readonly="${#strings.equals(field.name,'id') and idreadonly}" th:value="${field.value}"/>
 		                </div>
+		                
+		                
 		                
 		            </div>
               </div>

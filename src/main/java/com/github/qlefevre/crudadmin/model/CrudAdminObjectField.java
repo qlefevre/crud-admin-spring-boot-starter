@@ -16,6 +16,7 @@
 package com.github.qlefevre.crudadmin.model;
 
 import java.lang.reflect.Field;
+import java.util.Date;
 
 import javax.persistence.Id;
 import javax.validation.constraints.Max;
@@ -59,7 +60,9 @@ public class CrudAdminObjectField {
 		}else{
 			Class<?> typeField = field.getType();
 			if (boolean.class.equals(typeField) || Boolean.class.equals(typeField)) {
-				type = "checkbox";
+				type = "boolean";
+			}else if (typeField.isAssignableFrom(Date.class)) {
+				type = "date";
 			}else if (int.class.equals(typeField) || Integer.class.equals(typeField)) {
 				type = "number";
 				min = Integer.MIN_VALUE;
