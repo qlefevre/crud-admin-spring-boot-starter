@@ -397,6 +397,7 @@ public class CrudAdminController {
 		model.addAttribute("domainname", repoAdmin.getDomainTypeName());
 		model.addAttribute("domainnamelowercase", repoAdmin.getDomainTypeNameLowerCase());
 		model.addAttribute("formatteddomainname", CrudAdminUtils.formatField(repoAdmin.getDomainTypeName()));
+		model.addAttribute("cdnlibraries",crudAdminProperties.getCdnLibraries());
 		model.addAttribute("page", page);
 		model.addAttribute("size", size);
 		List<String> allDomainNames = repositoryMap.values().stream().map(repo -> repo.getDomainTypeName())

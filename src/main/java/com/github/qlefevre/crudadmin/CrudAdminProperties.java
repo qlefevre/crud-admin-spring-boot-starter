@@ -57,6 +57,25 @@ public class CrudAdminProperties {
      * View template name
      */
     private String templateview = "adminview";
+    
+    /**
+     * CDN libraries prefix
+     */
+    private String cdnLibraries="";
+    
+	/**
+	 * @return the cdnLibraries
+	 */
+	public String getCdnLibraries() {
+		return cdnLibraries;
+	}
+
+	/**
+	 * @param cdnLibraries the cdnLibraries to set
+	 */
+	public void setCdnLibraries(String cdnLibraries) {
+		this.cdnLibraries = cdnLibraries;
+	}
 
 	/**
 	 * @return the enabled
