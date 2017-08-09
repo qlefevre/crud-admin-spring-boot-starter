@@ -68,6 +68,38 @@
 			<artifactId>spring-boot-configuration-processor</artifactId>
 			<optional>true</optional>
 		</dependency>
+		
+		<dependency>
+    			<groupId>org.webjars</groupId>
+    			<artifactId>jquery</artifactId>
+    			<version>3.2.1</version>
+		</dependency>
+		<dependency>
+    			<groupId>org.webjars</groupId>
+    			<artifactId>momentjs</artifactId>
+    			<version>2.18.1</version>
+		</dependency>
+		<dependency>
+    			<groupId>org.webjars</groupId>
+    			<artifactId>bootstrap</artifactId>
+    			<version>3.3.7</version>
+		</dependency>
+		<dependency>
+    			<groupId>org.webjars</groupId>
+    			<artifactId>Eonasdan-bootstrap-datetimepicker</artifactId>
+    			<version>4.17.43</version>
+		</dependency>
+		<dependency>
+    			<groupId>org.webjars.bower</groupId>
+    			<artifactId>bootstrap-touchspin</artifactId>
+    			<version>3.1.2</version>
+		</dependency>
+		<dependency>
+    			<groupId>org.webjars.bower</groupId>
+    			<artifactId>bootstrap-toggle</artifactId>
+    			<version>2.2.2</version>
+		</dependency>
+		
 	</dependencies>
 
 	<distributionManagement>
