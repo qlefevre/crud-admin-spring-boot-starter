@@ -16,7 +16,10 @@
 package com.github.qlefevre.crudadmin.model;
 
 import java.lang.reflect.Field;
+import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.persistence.Id;
 import javax.validation.constraints.Max;
@@ -44,6 +47,8 @@ public class CrudAdminObjectField {
 	private long min = Long.MIN_VALUE;
 	
 	private int scale = 0;
+	
+	private List<String> enumValues;
 
 	public CrudAdminObjectField(String name, String value, Field field) {
 		super();
@@ -63,6 +68,9 @@ public class CrudAdminObjectField {
 				type = "boolean";
 			}else if (typeField.isAssignableFrom(Date.class)) {
 				type = "date";
+			}else if(typeField.isEnum()){
+				type = "enum";
+				setEnumValues(Arrays.stream(typeField.getEnumConstants()).map(Object::toString).collect(Collectors.toList()));
 			}else if (int.class.equals(typeField) || Integer.class.equals(typeField)) {
 				type = "number";
 				min = Integer.MIN_VALUE;
@@ -189,5 +197,13 @@ public class CrudAdminObjectField {
 	 */
 	public double getStep(){
 		return Math.pow(10, getScale()*-1);
+	}
+
+	public List<String> getEnumValues() {
+		return enumValues;
+	}
+
+	public void setEnumValues(List<String> enumValues) {
+		this.enumValues = enumValues;
 	}
 }

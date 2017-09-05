@@ -74,11 +74,14 @@
 		                    	});
             				</script>	
 		                </div>
+		                <div class="col-sm-10" th:case="enum">
+                        	<select class="form-control" th:name="${field.name}" th:readonly="${#strings.equals(field.name,'id') and idreadonly}" th:value="${field.value}">
+								<option th:each="option : ${field.enumValues}" th:value="${option}" th:text="${option}"></option>	
+							</select>
+		                </div>
 		                <div class="col-sm-10" th:case="text">
 		                    <input type="text" class="form-control" th:name="${field.name}" th:readonly="${#strings.equals(field.name,'id') and idreadonly}" th:value="${field.value}"/>
 		                </div>
-		                
-		                
 		                
 		            </div>
               </div>
