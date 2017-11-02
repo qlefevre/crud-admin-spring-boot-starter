@@ -35,9 +35,9 @@
 			           	<tr th:each="object : ${objects}">
 			                <td th:each="field : ${object.fields}" th:text="${field}"></td>
 			                <td>
-				                <a th:href="${'/'+adminpath+'/view/' +domainnamelowercase+'/' +size+'/' +page+ '/' +object.urlEncodedId}" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-eye-open"></span></a>
-				                <a th:href="${'/'+adminpath+'/edit/'+domainnamelowercase+'/'  + size+'/' +page +'/' +object.urlEncodedId}" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-pencil"></span></a>
-				                <a th:href="${'/'+adminpath+'/delete/'+domainnamelowercase+'/' +size+'/' + page+'/' + object.urlEncodedId}" class="btn btn-warning btn-xs"><span class="glyphicon glyphicon-trash"></span></a>
+				                <a th:href="${'/'+adminpath+'/view/' +domainnamelowercase+'/' +size+'/' +page+ '/' +object.urlEncodedId}+'/'" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-eye-open"></span></a>
+				                <a th:href="${'/'+adminpath+'/edit/'+domainnamelowercase+'/'  + size+'/' +page +'/' +object.urlEncodedId}+'/'" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-pencil"></span></a>
+				                <a th:href="${'/'+adminpath+'/delete/'+domainnamelowercase+'/' +size+'/' + page+'/' + object.urlEncodedId}+'/'" class="btn btn-warning btn-xs"><span class="glyphicon glyphicon-trash"></span></a>
 				            </td>
 			            </tr>
 		            </tbody>

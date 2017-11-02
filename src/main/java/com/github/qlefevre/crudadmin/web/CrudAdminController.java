@@ -163,7 +163,7 @@ public class CrudAdminController {
 	 *            current model
 	 * @return view template name
 	 */
-	@RequestMapping(value = "${crudadmin.url}/view/{type}/{size}/{page}/{id}")
+	@RequestMapping(value = "${crudadmin.url}/view/{type}/{size}/{page}/{id}/")
 	public String show(@PathVariable String type, @PathVariable String id, @PathVariable int size,
 			@PathVariable int page, Model model) {
 		CrudAdminRepository repoAdmin = repositoryMap.get(type);
@@ -188,7 +188,7 @@ public class CrudAdminController {
 	 *            current model
 	 * @return edit template name
 	 */
-	@RequestMapping(value = "${crudadmin.url}/edit/{type}/{size}/{page}/{id}")
+	@RequestMapping(value = "${crudadmin.url}/edit/{type}/{size}/{page}/{id}/")
 	public String edit(@PathVariable String type, @PathVariable String id, @PathVariable int size,
 			@PathVariable int page, Model model) {
 		return doEdit(type, id, size, page, "", model);
@@ -253,7 +253,7 @@ public class CrudAdminController {
 				repoAdmin.getRepositoryObjectSerializable().save(object);
 				idString =  getStringFromId(repoAdmin.getId().get(object), repoAdmin);			
 				return "redirect:/" + crudAdminProperties.getUrl() + "/view/" + repoAdmin.getDomainTypeNameLowerCase()
-						+ "/" + size + "/" + page + "/" + idString;
+						+ "/" + size + "/" + page + "/" + idString+'/';
 			} catch (Exception transactionException) {
 				Throwable rootCause = transactionException;
 				while (rootCause.getCause() != null) {
@@ -292,7 +292,7 @@ public class CrudAdminController {
 	 *            current model
 	 * @return delete template name
 	 */
-	@RequestMapping(value = "${crudadmin.url}/delete/{type}/{size}/{page}/{id}")
+	@RequestMapping(value = "${crudadmin.url}/delete/{type}/{size}/{page}/{id}/")
 	public String delete(@PathVariable String type, @PathVariable String id, @PathVariable int size,
 			@PathVariable int page, Model model) {
 		CrudAdminRepository repoAdmin = repositoryMap.get(type);
