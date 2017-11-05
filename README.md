@@ -10,3 +10,27 @@ To use the latest release of crud-admin-spring-boot-starter, please use the foll
     <version>1.1.0</version>
 </dependency>
 ```
+# Features
+
+Supported Types for annotation @Id : 
+* String
+* Long
+* Integer
+
+Supported Types for persistent field (@Column) :
+* String
+* Long
+* Integer
+* Short
+* Byte
+* Float
+* Double
+* Boolean
+* Enum
+* Date
+
+Input spinner components used for numbers can be controlled with the folling annotations:
+* minimal value with @Min or @Range
+* maximum value with @Max or @Range
+* decimals with @Column(scale=2) for value like 1.00
+
