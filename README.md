@@ -7,6 +7,6 @@ To use the latest release of crud-admin-spring-boot-starter, please use the foll
 <dependency>
     <groupId>com.github.qlefevre</groupId>
     <artifactId>crud-admin-spring-boot-starter</artifactId>
-    <version>1.0.0</version>
+    <version>1.1.0</version>
 </dependency>
 ```
