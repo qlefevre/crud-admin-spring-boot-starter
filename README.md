@@ -19,12 +19,7 @@ Supported Types for annotation @Id :
 
 Supported Types for persistent field (@Column) :
 * String
-* Long
-* Integer
-* Short
-* Byte
-* Float
-* Double
+* Long, Integer, Short, Byte, Float, Double
 * Boolean
 * Enum
 * Date
@@ -34,3 +29,22 @@ Input spinner components used for numbers can be controlled with the folling ann
 * maximum value with @Max or @Range
 * decimals with @Column(scale=2) for value like 1.00
 
+Date format used is "yyyy-MM-dd HH:mm:ss"
+
+Add the following properties to your application.properties to change the behavior:
+```properties
+# Enable / Disable module
+crudadmin.enabled=true
+# Admin URL path
+crudadmin.url=admin
+# Default page size
+crudadmin.defaultpagesize=10
+# Edit template name
+crudadmin.templateedit=adminedit
+# List template name
+crudadmin.templatelist=adminlist  
+# View template name
+crudadmin.templateview=adminview
+# Class to instantiate for custom ObjectIdSerializer
+crudadmin.objectidserializer=com.package.CustomCrudAdminObjectIdSerializer
+``` 
