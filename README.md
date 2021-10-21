@@ -1,5 +1,6 @@
-# crud-admin-spring-boot-starter [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.github.qlefevre/crud-admin-spring-boot-starter/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.github.qlefevre/crud-admin-spring-boot-starter) [![Build Status](https://travis-ci.org/qlefevre/crud-admin-spring-boot-starter.svg)](https://travis-ci.org/qlefevre/crud-admin-spring-boot-starter)
-CRUD Administration for Spring Boot
+# crud-admin-spring-boot-starter
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.github.qlefevre/crud-admin-spring-boot-starter/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.github.qlefevre/crud-admin-spring-boot-starter)
+[![build](https://github.com/qlefevre/crud-admin-spring-boot-starter/actions/workflows/build.yml/badge.svg)](https://github.com/qlefevre/crud-admin-spring-boot-starter/actions/workflows/build.yml)
 
 # Installation
 To use the latest release of crud-admin-spring-boot-starter, please use the following snippet in your pom.xml.
